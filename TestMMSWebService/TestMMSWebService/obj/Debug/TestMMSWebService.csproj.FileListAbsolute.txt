@@ -1,0 +1,6 @@
+c:\users\scvatasoiu@mms.org\documents\visual studio 2013\Projects\TestMMSWebService\TestMMSWebService\obj\Debug\TestMMSWebService.csprojResolveAssemblyReference.cache
+c:\users\scvatasoiu@mms.org\documents\visual studio 2013\Projects\TestMMSWebService\TestMMSWebService\bin\TestMMSWebService.dll.config
+c:\users\scvatasoiu@mms.org\documents\visual studio 2013\Projects\TestMMSWebService\TestMMSWebService\bin\TestMMSWebService.dll
+c:\users\scvatasoiu@mms.org\documents\visual studio 2013\Projects\TestMMSWebService\TestMMSWebService\bin\TestMMSWebService.pdb
+c:\users\scvatasoiu@mms.org\documents\visual studio 2013\Projects\TestMMSWebService\TestMMSWebService\obj\Debug\TestMMSWebService.dll
+c:\users\scvatasoiu@mms.org\documents\visual studio 2013\Projects\TestMMSWebService\TestMMSWebService\obj\Debug\TestMMSWebService.pdb

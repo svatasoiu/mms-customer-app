@@ -3,3 +3,9 @@ c:\users\scvatasoiu@mms.org\documents\visual studio 2013\Projects\TestMMSWebServ
 c:\users\scvatasoiu@mms.org\documents\visual studio 2013\Projects\TestMMSWebService\TestMMSWebService\bin\TestMMSWebService.pdb
 c:\users\scvatasoiu@mms.org\documents\visual studio 2013\Projects\TestMMSWebService\TestMMSWebService\obj\Release\TestMMSWebService.dll
 c:\users\scvatasoiu@mms.org\documents\visual studio 2013\Projects\TestMMSWebService\TestMMSWebService\obj\Release\TestMMSWebService.pdb
+C:\git\mms-app\TestMMSWebService\TestMMSWebService\bin\TestMMSWebService.dll.config
+C:\git\mms-app\TestMMSWebService\TestMMSWebService\bin\TestMMSWebService.dll
+C:\git\mms-app\TestMMSWebService\TestMMSWebService\bin\TestMMSWebService.pdb
+C:\git\mms-app\TestMMSWebService\TestMMSWebService\obj\Release\TestMMSWebService.csprojResolveAssemblyReference.cache
+C:\git\mms-app\TestMMSWebService\TestMMSWebService\obj\Release\TestMMSWebService.dll
+C:\git\mms-app\TestMMSWebService\TestMMSWebService\obj\Release\TestMMSWebService.pdb

@@ -1,16 +1,14 @@
 package com.example.test_wcf_service;
 
-import android.support.v7.app.ActionBarActivity;
-import android.support.v4.app.Fragment;
+import android.app.Activity;
+import android.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -18,38 +16,16 @@ public class MainActivity extends ActionBarActivity {
 		setContentView(R.layout.activity_main);
 		
 		if (savedInstanceState == null) {
-			getSupportFragmentManager().beginTransaction()
+			getFragmentManager().beginTransaction()
 					.add(R.id.container, new PlaceholderFragment()).commit();
 		}
 	}
-
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.main, menu);
-		return true;
-	}
-
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		// Handle action bar item clicks here. The action bar will
-		// automatically handle clicks on the Home/Up button, so long
-		// as you specify a parent activity in AndroidManifest.xml.
-		int id = item.getItemId();
-		if (id == R.id.action_settings) {
-			return true;
-		}
-		return super.onOptionsItemSelected(item);
-	}
-
+	
 	/**
 	 * A placeholder fragment containing a simple view.
 	 */
 	public static class PlaceholderFragment extends Fragment {
 
-		private TextView tv;
-		
 		public PlaceholderFragment() {
 		}
 
@@ -59,12 +35,17 @@ public class MainActivity extends ActionBarActivity {
 			View rootView = inflater.inflate(R.layout.fragment_main, container,
 					false);
 
-			tv = (TextView) rootView.findViewById(R.id.textView2);
-
-			new RetrieveNameTask(tv).execute();
+			TextView te1 = (TextView) rootView.findViewById(R.id.CustomerId);
+			TextView te2 = (TextView) rootView.findViewById(R.id.Product);
+			TextView te3 = (TextView) rootView.findViewById(R.id.Expiration);
+			
+			new GetData(te1, te2, te3).execute();
 			
 			return rootView;
 		}
 	}
-
 }
+
+
+
+	

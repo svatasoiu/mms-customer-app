@@ -43,8 +43,9 @@ public class GetData extends AsyncTask<Void, Void, Table> {
 		HttpTransportSE transport = null; // call webservice
 		SoapSerializationEnvelope sse = null;
 
+		
 		sse = new SoapSerializationEnvelope(SoapEnvelope.VER11);
-		sse.addMapping(NAMESPACE, "Tables", this.getClass());
+//		sse.addMapping(NAMESPACE, "Table", this.getClass());
 
 		sse.dotNet = true; // if WebService written .Net is result=true
 		HttpTransportSE androidHttpTransport = new HttpTransportSE(URL);
@@ -52,21 +53,27 @@ public class GetData extends AsyncTask<Void, Void, Table> {
 		Table settable = new Table();
 		try {
 			client = new SoapObject(NAMESPACE, METHOD_NAME);
+			
+//			client.addProperty("username", "svat");
+//			client.addProperty("password", "pass");
+			
 			sse.setOutputSoapObject(client);
 			sse.bodyOut = client;
+			
 			androidHttpTransport.call(SOAP_ACTION, sse);
 
 			// get file XML
 			responseBody = (SoapObject) sse.getResponse();
+			System.out.println(responseBody);
 			// only retrieved results that returned
-			responseBody = (SoapObject) responseBody.getProperty(1);
-			// XMl of tables that is returned
-			table = (SoapObject) responseBody.getProperty(0);
-			// each row in table,0 is first row
-			tableRow = (SoapObject) table.getProperty(0);
-			settable.CustomerID = tableRow.getProperty("CustomerID").toString();
-			settable.Product = tableRow.getProperty("Product").toString();
-			settable.Expiration = tableRow.getProperty("Expiration").toString();
+//			responseBody = (SoapObject) responseBody.getProperty(1);
+//			// XMl of tables that is returned
+//			table = (SoapObject) responseBody.getProperty(0);
+//			// each row in table,0 is first row
+//			tableRow = (SoapObject) table.getProperty(0);
+//			settable.CustomerID = tableRow.getProperty("CustomerID").toString();
+//			settable.Product = tableRow.getProperty("Product").toString();
+//			settable.Expiration = tableRow.getProperty("Expiration").toString();
 			return settable;
 
 		} catch (Exception e) {

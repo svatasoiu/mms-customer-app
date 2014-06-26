@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
@@ -15,16 +16,16 @@ namespace TestMMSWebService
         string GetUserName(int ID);
 
         [OperationContract]
-        List<User> GetAllUsers();
+        DataSet GetAllUsers();
     }
 
     [DataContract]
-    public class User
+    public class Customer
     {
         [DataMember]
-        public int UserID;
+        public string CustomerID;
         [DataMember]
-        public string Name;
+        public string Product;
         [DataMember]
         public DateTime ExpirationDate;
     }

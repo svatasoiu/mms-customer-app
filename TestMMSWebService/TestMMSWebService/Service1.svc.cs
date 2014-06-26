@@ -4,6 +4,8 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace TestMMSWebService
 {
@@ -16,9 +18,24 @@ namespace TestMMSWebService
             return "Sorin";
         }
 
-        public List<User> GetAllUsers()
+        public DataSet GetAllUsers()
         {
-            return new List<User>() { new User {UserID=1, Name="SV", ExpirationDate=new DateTime(1990,05,05)}};
+            
+            try
+            {
+                SqlConnection con = new SqlConnection("Server=localhost\\sqlexpress; Database=CustomerDB; Integrated Security=True;");
+                con.Open();
+                SqlDataAdapter adapter = new SqlDataAdapter("select * from Customers", con);
+                DataSet customers = new DataSet();
+                adapter.Fill(customers);
+                return customers;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.ToString());
+            }
+            return null;
+            //return new List<Customer>() { new Customer {CustomerID="0010", Product="SV", ExpirationDate=new DateTime(1990,05,05)}};
         }
     }
 }

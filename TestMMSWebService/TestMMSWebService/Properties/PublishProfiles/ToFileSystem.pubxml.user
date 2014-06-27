@@ -10,7 +10,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/TestMMSWebService.dll">
-      <publishTime>06/26/2014 14:03:43</publishTime>
+      <publishTime>06/27/2014 11:24:41</publishTime>
     </File>
     <File Include="Service1.svc">
       <publishTime>06/25/2014 09:27:41</publishTime>

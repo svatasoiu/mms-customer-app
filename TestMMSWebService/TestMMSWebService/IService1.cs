@@ -13,10 +13,10 @@ namespace TestMMSWebService
     public interface TestService
     {
         [OperationContract]
-        string GetUserName(int ID);
+        string GetUserData(string ID);
 
         [OperationContract]
-        DataSet GetAllUsers();
+        string GetAllUsers();
     }
 
     [DataContract]

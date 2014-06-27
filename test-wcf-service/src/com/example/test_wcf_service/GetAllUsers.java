@@ -9,7 +9,7 @@ import org.ksoap2.transport.HttpTransportSE;
 import android.os.AsyncTask;
 import android.widget.TextView;
 
-public class GetData extends AsyncTask<Void, Void, Table> {
+public class GetAllUsers extends AsyncTask<Void, Void, Table> {
 	
 	final String METHOD_NAME = "GetAllUsers";
 	// private static final String METHOD_NAME = "HelloWorld";
@@ -21,14 +21,14 @@ public class GetData extends AsyncTask<Void, Void, Table> {
 	// private static final String URL =
 	// "http://192.168.0.2:8080/webservice1  /Service1.asmx";
 
-	final String SOAP_ACTION = "http://tempuri.org/TestService/GetAllUsers";
+	final String SOAP_ACTION = "http://tempuri.org/TestService/" + METHOD_NAME;
 	//  final String SOAP_ACTION = "http://tempuri.org/HelloWorld";
 	StringBuilder sb;
 	TextView _te1;
 	TextView _te2;
 	TextView _te3;
 	 
-	public GetData(TextView te1, TextView te2, TextView te3) {
+	public GetAllUsers(TextView te1, TextView te2, TextView te3) {
 		_te1 = te1;
 		_te2 = te2;
 		_te3 = te3;
@@ -39,7 +39,7 @@ public class GetData extends AsyncTask<Void, Void, Table> {
 		SoapObject table = null; // dataset that returned through SoapObject
 		SoapObject client = null; // client to the web service
 		SoapObject tableRow = null; // Contains row of table
-		SoapObject responseBody = null; // Contains XML content of dataset
+		SoapPrimitive responseBody = null; // Contains XML content of dataset
 		HttpTransportSE transport = null; // call webservice
 		SoapSerializationEnvelope sse = null;
 
@@ -63,17 +63,20 @@ public class GetData extends AsyncTask<Void, Void, Table> {
 			androidHttpTransport.call(SOAP_ACTION, sse);
 
 			// get file XML
-			responseBody = (SoapObject) sse.getResponse();
+			responseBody = (SoapPrimitive) sse.getResponse();
 			System.out.println(responseBody);
+			
+//			File stocks = new File("Stocks.xml");
+			
 			// only retrieved results that returned
 //			responseBody = (SoapObject) responseBody.getProperty(1);
 //			// XMl of tables that is returned
 //			table = (SoapObject) responseBody.getProperty(0);
 //			// each row in table,0 is first row
 //			tableRow = (SoapObject) table.getProperty(0);
-//			settable.CustomerID = tableRow.getProperty("CustomerID").toString();
-//			settable.Product = tableRow.getProperty("Product").toString();
-//			settable.Expiration = tableRow.getProperty("Expiration").toString();
+			settable.CustomerID = responseBody.toString(); //tableRow.getProperty("CustomerID").toString();
+			settable.Product = responseBody.toString(); //tableRow.getProperty("Product").toString();
+			settable.Expiration = responseBody.toString(); //tableRow.getProperty("Expiration").toString();
 			return settable;
 
 		} catch (Exception e) {

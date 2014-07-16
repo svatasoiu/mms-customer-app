@@ -17,7 +17,9 @@ namespace TestMMSWebService
         {
             SqlConnection con = new SqlConnection(System.Configuration.ConfigurationManager.AppSettings["connString"]);
             con.Open();
-            SqlDataAdapter adapter = new SqlDataAdapter("select * from Customers where CTM_NBR="+ID, con);
+            SqlDataAdapter adapter = new SqlDataAdapter("p_GetUserByCTM_NBR", con);
+            adapter.SelectCommand.Parameters.AddWithValue("@ctm_nbr", ID);
+            adapter.SelectCommand.CommandType = CommandType.StoredProcedure;
             DataSet customers = new DataSet();
             adapter.Fill(customers);
             return customers.GetXml();
@@ -27,9 +29,10 @@ namespace TestMMSWebService
         {
             SqlConnection con = new SqlConnection(System.Configuration.ConfigurationManager.AppSettings["connString"]);
             con.Open();
-            SqlDataAdapter adapter = new SqlDataAdapter("select * from Customers", con);
+            SqlDataAdapter adapter = new SqlDataAdapter("p_GetAllUsers", con);
+            adapter.SelectCommand.CommandType = CommandType.StoredProcedure;
             DataSet customers = new DataSet();
-             adapter.Fill(customers);
+            adapter.Fill(customers);
             return customers.GetXml();
         }
     }

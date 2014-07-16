@@ -61,7 +61,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Service1.svc" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IService1.cs" />
@@ -71,7 +73,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Properties\PublishProfiles\ToFileSystem.pubxml" />
+    <None Include="Properties\PublishProfiles\ToDev.pubxml" />
+    <None Include="Properties\PublishProfiles\ToLocal.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

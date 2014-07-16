@@ -15,7 +15,7 @@ namespace TestMMSWebService
     {
         public string GetUserData(string ID)
         {
-            SqlConnection con = new SqlConnection("Server=localhost\\sqlexpress; Database=CustomerDB; Integrated Security=True;");
+            SqlConnection con = new SqlConnection(System.Configuration.ConfigurationManager.AppSettings["connString"]);
             con.Open();
             SqlDataAdapter adapter = new SqlDataAdapter("select * from Customers where CTM_NBR="+ID, con);
             DataSet customers = new DataSet();
@@ -25,17 +25,12 @@ namespace TestMMSWebService
 
         public string GetAllUsers()
         {
-            SqlConnection con = new SqlConnection("Server=localhost\\sqlexpress; Database=CustomerDB; Integrated Security=True;");
+            SqlConnection con = new SqlConnection(System.Configuration.ConfigurationManager.AppSettings["connString"]);
             con.Open();
             SqlDataAdapter adapter = new SqlDataAdapter("select * from Customers", con);
             DataSet customers = new DataSet();
              adapter.Fill(customers);
             return customers.GetXml();
-            
-            //DataSet r = new DataSet();
-            //r.ReadXml("C:\\git\\marklogic-search-app\\modules\\topics.xml");
-            //return r.GetXml();
-            //return new List<Customer>() { new Customer {CustomerID="0010", Product="SV", ExpirationDate=new DateTime(1990,05,05)}};
         }
     }
 }

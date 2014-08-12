@@ -27,7 +27,9 @@ public class GetUserData extends AsyncTask<String, Void, Table> {
 	final String NAMESPACE = "http://tempuri.org/";
 	// private static final String NAMESPACE = "http://tempuri.org";
 
-	final String URL = "http://172.16.151.35:4040/Service1.svc";
+	final String URL = MainActivity.TESTING 
+			? "http://172.16.151.35:4040/Service1.svc" 
+			: "http://dev.mms.org:9000/CustomerData/Service1.svc";
 	// private static final String URL =
 	// "http://192.168.0.2:8080/webservice1  /Service1.asmx";
 
